@@ -1,0 +1,15 @@
+{
+    "event_name": "user_send_text",
+    "app_id": "1234567890",
+    "sender": {
+        "id": "123456789123456789"
+    },
+    "recipient": {
+        "id": "987654321098765432"
+    },
+    "message": {
+        "text": "Chào anh, em tên Tài. Số điện thoại của em là 0901234567, email tai.nguyen@gmail.com. Tiện thể em muốn hỏi mua khoá học lập trình giá 5 triệu của anh có còn slot không? Đẹp nhất là 9h sáng mai anh tới gọi tư vấn giúp em nhé.",
+        "msg_id": "msg_aabbccdd"
+    },
+    "timestamp": 1690000000000
+}

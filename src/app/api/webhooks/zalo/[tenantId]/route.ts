@@ -95,7 +95,34 @@ export async function POST(req: Request, { params }: { params: Promise<{ tenantI
             ai_action: analysis.next_step
         }]);
 
-        // 6. NẾU AI NHẬN DIỆN YÊU CẦU TẠO LỊCH/TASK -> TẠO FOLLOW_UPS
+        // 6. Cập nhật thông tin khách hàng (contact_update)
+        let contactUpdated = false;
+        if (analysis.contact_update && Object.keys(analysis.contact_update).length > 0) {
+            const updates: any = {};
+            if (analysis.contact_update.name) updates.name = analysis.contact_update.name;
+            if (analysis.contact_update.phone) updates.phone = analysis.contact_update.phone;
+            if (analysis.contact_update.email) updates.email = analysis.contact_update.email;
+            if (analysis.contact_update.company) updates.company = analysis.contact_update.company;
+
+            if (Object.keys(updates).length > 0) {
+                await supabase.from('contacts').update(updates).eq('id', contactId);
+                contactUpdated = true;
+            }
+        }
+
+        // 7. Cập nhật Cơ hội - Deal (deal_update)
+        let dealUpdated = false;
+        if (analysis.deal_update && analysis.deal_update.deal_value) {
+            await supabase.from('contacts').update({
+                stage: analysis.intent === "Báo giá" ? "proposal" : "lead",
+                deal_value: analysis.deal_update.deal_value
+            }).eq('id', contactId);
+
+            // Có thể append thêm tag product_name nếu cần thiết, tạm bỏ qua để đơn giản
+            dealUpdated = true;
+        }
+
+        // 8. NẾU AI NHẬN DIỆN YÊU CẦU TẠO LỊCH/TASK -> TẠO FOLLOW_UPS
         let createdTask = null;
         if (analysis.is_task_request && analysis.task_title) {
             const { data: insertedFollowUp } = await supabase.from('follow_ups').insert([{
@@ -113,7 +140,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ tenantI
             createdTask = insertedFollowUp;
         }
 
-        return NextResponse.json({ success: true, ai_processed: true, analysis, createdTask });
+        return NextResponse.json({ success: true, ai_processed: true, analysis, createdTask, contactUpdated, dealUpdated });
 
     } catch (error: any) {
         console.error("Zalo Webhook Error:", error);

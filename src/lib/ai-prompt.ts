@@ -16,6 +16,8 @@ Nhiệm vụ: Khi nhận được một nội dung tin nhắn/email mới, bạn
 7. task_date: Trả về chuỗi ISO String Date của thời gian khách nhắc đến, nếu không trích xuất được thì trả null. (Hôm nay suy ra thời gian hiện tại là ${new Date().toISOString()}).
 8. task_type: Phân loại task nếu có (call, meeting, follow_up, quote), nếu không trả null.
 9. task_title: Tiêu đề ngắn gọn cho công việc này, nếu không trả null.
+10. contact_update: Object chứa thông tin cá nhân khách rải rác trong tin nhắn (nếu có nhắc đến "tên tôi là, sđt là, email"). Chứa các keys: { name?: string, phone?: string, email?: string, company?: string }. Nếu không tìm thấy, trả về null.
+11. deal_update: Object chứa thông tin nếu khách hàng rò rỉ ý định chốt đơn, hỏi mua một món hàng cụ thể với một khoản tiền cụ thể. Chứa các keys: { deal_value?: number, product_name?: string }. Nếu không có, trả về null.
 
 Định dạng trả về BẮT BUỘC là JSON hợp lệ (không chứa markdown ticks nếu không cần thiết):
 {
@@ -27,7 +29,9 @@ Nhiệm vụ: Khi nhận được một nội dung tin nhắn/email mới, bạn
   "is_task_request": boolean,
   "task_date": string | null,
   "task_type": string | null,
-  "task_title": string | null
+  "task_title": string | null,
+  "contact_update": { "name": string, "phone": string, "email": string, "company": string } | null,
+  "deal_update": { "deal_value": number, "product_name": string } | null
 }
 `.trim();
 
@@ -44,4 +48,14 @@ export interface AIAnalysisResult {
   task_date: string | null;
   task_type: string | null;
   task_title: string | null;
+  contact_update: {
+    name?: string;
+    phone?: string;
+    email?: string;
+    company?: string;
+  } | null;
+  deal_update: {
+    deal_value?: number;
+    product_name?: string;
+  } | null;
 }
