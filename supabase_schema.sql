@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS public.tenants (
     status TEXT DEFAULT 'active',
     owner TEXT,
     ai_provider TEXT DEFAULT 'groq',
+    api_keys JSONB DEFAULT '{}'::jsonb,
     created_at TIMESTAMPTZ DEFAULT now()
 );
 

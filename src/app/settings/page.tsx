@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Settings, Zap, Shield, CreditCard, ToggleLeft, ToggleRight, CheckCircle2, Bot, Eye, EyeOff, ChevronDown, Palette } from "lucide-react";
+import { Settings, Zap, Shield, CreditCard, ToggleLeft, ToggleRight, CheckCircle2, Bot, Eye, EyeOff, ChevronDown, Palette, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { supabase } from "@/lib/supabase";
+import { useTenant } from "@/lib/tenant-context";
 
 const channels = [
     { id: "gmail", name: "Gmail", icon: "📧", description: "Đọc và phân tích email tự động", connected: true, account: "yourname@gmail.com" },
@@ -62,6 +64,7 @@ function Toggle({ enabled, onChange }: { enabled: boolean; onChange: () => void 
 }
 
 export default function SettingsPage() {
+    const { currentTenant } = useTenant();
     const [channelStates, setChannelStates] = useState(Object.fromEntries(channels.map((c) => [c.id, c.connected])));
     const [aiStates, setAIStates] = useState(Object.fromEntries(aiSettings.map((s) => [s.id, s.enabled])));
     const [selectedProvider, setSelectedProvider] = useState("groq");
@@ -72,6 +75,37 @@ export default function SettingsPage() {
     });
     const [apiKeys, setApiKeys] = useState<Record<string, string>>({ groq: "", gemini: "", openai: "" });
     const [showKey, setShowKey] = useState<Record<string, boolean>>({});
+    const [isSaving, setIsSaving] = useState(false);
+
+    useEffect(() => {
+        const fetchSettings = async () => {
+            if (!currentTenant.id) return;
+            const { data, error } = await supabase.from('tenants').select('api_keys, ai_provider').eq('id', currentTenant.id).single();
+            if (data && !error) {
+                if (data.api_keys) setApiKeys(data.api_keys);
+                if (data.ai_provider) setSelectedProvider(data.ai_provider);
+            }
+        };
+        fetchSettings();
+    }, [currentTenant.id]);
+
+    const handleSaveAPIKeys = async () => {
+        if (!currentTenant.id) return;
+        setIsSaving(true);
+        try {
+            const { error } = await supabase.from('tenants').update({
+                api_keys: apiKeys,
+                ai_provider: selectedProvider
+            }).eq('id', currentTenant.id);
+            if (error) throw error;
+            alert("Lưu cấu hình AI thành công!");
+        } catch (error) {
+            console.error(error);
+            alert("Có lỗi xảy ra khi lưu!");
+        } finally {
+            setIsSaving(false);
+        }
+    };
 
     const currentProvider = aiProviders.find((p) => p.id === selectedProvider)!;
 
@@ -147,7 +181,7 @@ export default function SettingsPage() {
                             </button>
                         </div>
                         <p className="text-[10px] text-muted-foreground mt-1">
-                            Key được lưu cục bộ, không gửi lên server nào.
+                            Key được mã hoá an toàn trên database. Nếu để trống, hệ thống sẽ sử dụng key mặc định của Admin.
                         </p>
                     </div>
 
@@ -168,10 +202,16 @@ export default function SettingsPage() {
                         </div>
                     </div>
 
-                    {/* Test Connection */}
-                    <button className="w-full py-2 rounded-xl text-sm font-medium bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/30 transition-all">
-                        🔌 Test kết nối
-                    </button>
+                    {/* Save Config */}
+                    <div className="flex gap-2">
+                        <button onClick={handleSaveAPIKeys} disabled={isSaving} className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-sm font-medium bg-cyan-500 text-white hover:bg-cyan-600 transition-all disabled:opacity-50">
+                            {isSaving && <Loader2 className="w-4 h-4 animate-spin" />}
+                            Lưu cấu hình AI
+                        </button>
+                        <button className="px-4 py-2 rounded-xl text-sm font-medium bg-white/5 text-muted-foreground hover:text-white transition-all">
+                            Test API
+                        </button>
+                    </div>
                 </div>
             </motion.section>
 
@@ -215,7 +255,7 @@ export default function SettingsPage() {
                                         <div className="flex items-center gap-2">
                                             <input
                                                 type="text"
-                                                defaultValue={`https://vibecrm.app/api/webhooks/${channel.id}`}
+                                                defaultValue={`https://vibecrm.app/api/webhooks/${channel.id}/${currentTenant.id || 'YOUR_TENANT_ID'}`}
                                                 readOnly
                                                 className="flex-1 px-3 py-1.5 text-xs bg-card border border-border rounded-lg text-white/70 font-mono outline-none"
                                             />

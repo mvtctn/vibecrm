@@ -1,18 +1,38 @@
 import { NextResponse } from "next/server";
-import { groq } from "@/lib/groq";
+import Groq from "groq-sdk";
 import { SYSTEM_PROMPT_ANALYZE_MESSAGE, AIAnalysisResult } from "@/lib/ai-prompt";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        const { message } = body;
+        const { message, tenantId } = body;
 
         if (!message) {
             return NextResponse.json({ error: "Vui lòng cung cấp nội dung tin nhắn (message)" }, { status: 400 });
         }
 
+        // 1. Khởi tạo API Key mặc định của Admin
+        let apiKey = process.env.GROQ_API_KEY || process.env.NEXT_PUBLIC_GROQ_API_KEY || "";
+
+        // 2. Kiểm tra nếu có tenantId thì lấy API Key của User (nếu họ đã cài)
+        if (tenantId) {
+            const { data: tenant } = await supabase.from('tenants').select('api_keys').eq('id', tenantId).single();
+            if (tenant?.api_keys?.groq) {
+                apiKey = tenant.api_keys.groq;
+                console.log("Using custom Groq API Key for tenant:", tenantId);
+            }
+        }
+
+        if (!apiKey) {
+            return NextResponse.json({ error: "Lỗi cấu hình: Không tìm thấy API Key cho Groq" }, { status: 500 });
+        }
+
+        // 3. Khởi tạo instance Groq mới với API Key động
+        const customGroq = new Groq({ apiKey });
+
         // Gọi API Groq
-        const chatCompletion = await groq.chat.completions.create({
+        const chatCompletion = await customGroq.chat.completions.create({
             messages: [
                 {
                     role: "system",

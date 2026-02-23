@@ -1,0 +1,10 @@
+﻿.next/types/app/api/webhooks/zalo/[tenantId]/route.ts(166,7): error TS2344: Type '{ __tag__: "POST"; __param_position__: "second"; __param_type__: { params: { tenantId: string; }; }; }' does not satisfy the constraint 'ParamCheck<RouteContext>'.
+  The types of '__param_type__.params' are incompatible between these types.
+    Type '{ tenantId: string; }' is missing the following properties from type 'Promise<any>': then, catch, finally, [Symbol.toStringTag]
+.next/types/validator.ts(144,31): error TS2344: Type 'typeof import("D:/VibeCoding/Project/Solopreneur/src/app/api/webhooks/zalo/[tenantId]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/webhooks/zalo/[tenantId]">'.
+  Types of property 'POST' are incompatible.
+    Type '(req: Request, { params }: { params: { tenantId: string; }; }) => Promise<NextResponse<{ success: boolean; message: string; }> | NextResponse<{ success: boolean; ai_processed: boolean; analysis: AIAnalysisResult; createdTask: any; }> | NextResponse<...>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ tenantId: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ tenantId: string; }>; }' is not assignable to type '{ params: { tenantId: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'tenantId' is missing in type 'Promise<{ tenantId: string; }>' but required in type '{ tenantId: string; }'.

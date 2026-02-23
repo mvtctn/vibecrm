@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { mockFollowUps } from "@/lib/mock-data";
 import { formatDate, getChannelIcon, getUrgencyLabel, cn } from "@/lib/utils";
 import { FollowUp } from "@/types";
-import { Bell, Bot, CheckCircle2, Clock, AlertCircle, Send, Timer, CalendarClock } from "lucide-react";
+import { Bell, Bot, CheckCircle2, Clock, AlertCircle, Send, Timer, CalendarClock, Trash2, Plus, X, Loader2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
+import { useTenant } from "@/lib/tenant-context";
 
 const urgencyConfig = {
     overdue: {
@@ -42,7 +43,7 @@ const urgencyConfig = {
     },
 };
 
-function FollowUpCard({ followUp, onDone }: { followUp: FollowUp; onDone: (id: string) => void }) {
+function FollowUpCard({ followUp, onDone, onDelete }: { followUp: FollowUp; onDone: (id: string) => void; onDelete: (id: string) => void }) {
     const [expanded, setExpanded] = useState(false);
     const urgency = getUrgencyLabel(followUp.due_date);
     const config = urgencyConfig[urgency];
@@ -120,13 +121,9 @@ function FollowUpCard({ followUp, onDone }: { followUp: FollowUp; onDone: (id: s
                             <CheckCircle2 className="w-3.5 h-3.5" />
                             Đã xong
                         </button>
-                        <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/30 transition-all">
-                            <Send className="w-3.5 h-3.5" />
-                            Gửi ngay
-                        </button>
-                        <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-muted-foreground hover:text-white hover:bg-white/5 transition-all">
-                            <Timer className="w-3.5 h-3.5" />
-                            Hoãn
+                        <button onClick={() => onDelete(followUp.id)} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30 hover:bg-red-500/30 transition-all">
+                            <Trash2 className="w-3.5 h-3.5" />
+                            Xoá
                         </button>
                     </div>
                 </div>
@@ -136,10 +133,91 @@ function FollowUpCard({ followUp, onDone }: { followUp: FollowUp; onDone: (id: s
 }
 
 export default function FollowUpsPage() {
-    const [followUps, setFollowUps] = useState<FollowUp[]>(mockFollowUps);
+    const { currentTenant } = useTenant();
+    const [followUps, setFollowUps] = useState<FollowUp[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [allContacts, setAllContacts] = useState<any[]>([]);
 
-    const handleDone = (id: string) => {
-        setFollowUps((prev) => prev.map((f) => f.id === id ? { ...f, status: "done" as const } : f));
+    // Modal State
+    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formData, setFormData] = useState({
+        contact_id: "",
+        note: "",
+        due_date: new Date().toISOString().slice(0, 16),
+        channel: "manual",
+    });
+
+    const fetchFollowUps = async () => {
+        setLoading(true);
+        const { data, error } = await supabase
+            .from('follow_ups')
+            .select('*')
+            .eq('tenant_id', currentTenant.id)
+            .order('due_date', { ascending: true });
+
+        if (error) console.error("Error fetching follow-ups:", error);
+        else setFollowUps(data || []);
+
+        // Fetch contacts for the select dropdown
+        const { data: cData } = await supabase.from('contacts').select('id, name').eq('tenant_id', currentTenant.id);
+        if (cData) setAllContacts(cData);
+
+        setLoading(false);
+    };
+
+    useEffect(() => {
+        if (currentTenant.id) fetchFollowUps();
+    }, [currentTenant.id]);
+
+    const handleDone = async (id: string) => {
+        const { error } = await supabase.from('follow_ups').update({ status: 'done' }).eq('id', id);
+        if (!error) {
+            setFollowUps((prev) => prev.map((f) => f.id === id ? { ...f, status: "done" as const } : f));
+        } else {
+            console.error(error);
+            alert("Lỗi khi cập nhật trạng thái!");
+        }
+    };
+
+    const handleDelete = async (id: string) => {
+        if (!confirm("Xoá lịch nhắc nhở này?")) return;
+        const { error } = await supabase.from('follow_ups').delete().eq('id', id);
+        if (!error) {
+            setFollowUps((prev) => prev.filter((f) => f.id !== id));
+        } else {
+            console.error(error);
+            alert("Lỗi khi xoá!");
+        }
+    };
+
+    const handleAddSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        try {
+            const selectedContact = allContacts.find(c => c.id === formData.contact_id);
+            const { error } = await supabase.from('follow_ups').insert([{
+                tenant_id: currentTenant.id,
+                contact_id: formData.contact_id || null,
+                contact_name: selectedContact?.name || "Thủ công",
+                type: 'follow_up',
+                status: 'pending',
+                note: formData.note,
+                due_date: new Date(formData.due_date).toISOString(),
+                channel: formData.channel,
+                ai_created: false
+            }]);
+
+            if (error) throw error;
+            setIsAddModalOpen(false);
+            setFormData({ contact_id: "", note: "", due_date: new Date().toISOString().slice(0, 16), channel: "manual" });
+            fetchFollowUps();
+        } catch (error) {
+            console.error(error);
+            alert("Có lỗi xảy ra khi lưu lịch nhắc!");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const pending = followUps.filter((f) => f.status === "pending");
@@ -163,7 +241,14 @@ export default function FollowUpsPage() {
                         AI tự động soạn tin nhắn và lên lịch nhắc
                     </p>
                 </div>
-                <div className="flex gap-3">
+                <div className="flex gap-3 items-center">
+                    <button
+                        onClick={() => setIsAddModalOpen(true)}
+                        className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-xs font-semibold text-white hover:opacity-90 transition-all"
+                    >
+                        <Plus className="w-3.5 h-3.5" />
+                        Thêm Lịch nhắc
+                    </button>
                     <div className="glass rounded-xl px-3 py-2 text-xs text-muted-foreground border border-border">
                         {pending.length} pending · {done.length} done
                     </div>
@@ -193,7 +278,7 @@ export default function FollowUpsPage() {
                     </h2>
                     <div className="space-y-3">
                         <AnimatePresence>
-                            {overdue.map((f) => <FollowUpCard key={f.id} followUp={f} onDone={handleDone} />)}
+                            {overdue.map((f) => <FollowUpCard key={f.id} followUp={f} onDone={handleDone} onDelete={handleDelete} />)}
                         </AnimatePresence>
                     </div>
                 </section>
@@ -207,7 +292,7 @@ export default function FollowUpsPage() {
                     </h2>
                     <div className="space-y-3">
                         <AnimatePresence>
-                            {today.map((f) => <FollowUpCard key={f.id} followUp={f} onDone={handleDone} />)}
+                            {today.map((f) => <FollowUpCard key={f.id} followUp={f} onDone={handleDone} onDelete={handleDelete} />)}
                         </AnimatePresence>
                     </div>
                 </section>
@@ -221,10 +306,73 @@ export default function FollowUpsPage() {
                     </h2>
                     <div className="space-y-3">
                         <AnimatePresence>
-                            {upcoming.map((f) => <FollowUpCard key={f.id} followUp={f} onDone={handleDone} />)}
+                            {upcoming.map((f) => <FollowUpCard key={f.id} followUp={f} onDone={handleDone} onDelete={handleDelete} />)}
                         </AnimatePresence>
                     </div>
                 </section>
+            )}
+
+            {loading && (
+                <div className="flex justify-center items-center py-12 text-muted-foreground">
+                    <Loader2 className="w-8 h-8 animate-spin" />
+                </div>
+            )}
+
+            {/* Modal Add Follow Up */}
+            {isAddModalOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="bg-slate-900 border border-border rounded-2xl p-6 w-full max-w-md shadow-2xl"
+                    >
+                        <div className="flex items-center justify-between mb-4">
+                            <h2 className="text-lg font-semibold text-white">Thêm lịch Reminder / Follow-up</h2>
+                            <button onClick={() => setIsAddModalOpen(false)} className="p-1 text-muted-foreground hover:text-white rounded-lg hover:bg-white/10">
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
+
+                        <form onSubmit={handleAddSubmit} className="space-y-4">
+                            <div className="space-y-1">
+                                <label className="text-xs text-muted-foreground">Khách hàng liên quan (Không bắt buộc)</label>
+                                <select value={formData.contact_id} onChange={e => setFormData({ ...formData, contact_id: e.target.value })} className="w-full px-3 py-2 bg-black/40 border border-border rounded-xl text-sm text-white focus:outline-none focus:border-cyan-500">
+                                    <option value="">-- Để trống --</option>
+                                    {allContacts.map(c => (
+                                        <option key={c.id} value={c.id} className="bg-slate-900">{c.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="space-y-1">
+                                <label className="text-xs text-muted-foreground">Nội dung nhắc việc *</label>
+                                <input required value={formData.note} onChange={e => setFormData({ ...formData, note: e.target.value })} className="w-full px-3 py-2 bg-black/40 border border-border rounded-xl text-sm text-white focus:outline-none focus:border-cyan-500" placeholder="Gửi báo giá..." />
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="space-y-1">
+                                    <label className="text-xs text-muted-foreground">Thời hạn (Due Date) *</label>
+                                    <input type="datetime-local" required value={formData.due_date} onChange={e => setFormData({ ...formData, due_date: e.target.value })} className="w-full px-3 py-2 bg-black/40 border border-border rounded-xl text-sm text-white focus:outline-none focus:border-cyan-500" />
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-xs text-muted-foreground">Nguồn kênh (Channel)</label>
+                                    <select value={formData.channel} onChange={e => setFormData({ ...formData, channel: e.target.value })} className="w-full px-3 py-2 bg-black/40 border border-border rounded-xl text-sm text-white focus:outline-none focus:border-cyan-500">
+                                        <option value="manual">Thủ công</option>
+                                        <option value="zalo">Zalo</option>
+                                        <option value="telegram">Telegram</option>
+                                        <option value="email">Email</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="pt-4 flex justify-end gap-3">
+                                <button type="button" onClick={() => setIsAddModalOpen(false)} className="px-4 py-2 text-sm text-muted-foreground hover:text-white transition-colors">Huỷ</button>
+                                <button type="submit" disabled={isSubmitting} className="px-4 py-2 rounded-xl bg-cyan-500 text-white text-sm font-medium hover:bg-cyan-600 disabled:opacity-50 flex items-center gap-2">
+                                    {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
+                                    Tạo nhắc việc
+                                </button>
+                            </div>
+                        </form>
+                    </motion.div>
+                </div>
             )}
         </div>
     );
