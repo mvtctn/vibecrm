@@ -1,0 +1,1502 @@
+[
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Nguyễn Văn Quỳnh 1",
+    "email": "user1@example.com",
+    "phone": "0902688451",
+    "company": "Công ty Quỳnh Group 1",
+    "stage": "proposal",
+    "source": "telegram",
+    "deal_value": 59000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_1"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Tú 2",
+    "email": "user2@example.com",
+    "phone": "0901867848",
+    "company": "Công ty Tú Group 2",
+    "stage": "proposal",
+    "source": "referral",
+    "deal_value": 83000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_2"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Dũng 3",
+    "email": "user3@example.com",
+    "phone": "0907285160",
+    "company": "Công ty Dũng Group 3",
+    "stage": "negotiation",
+    "source": "email",
+    "deal_value": 52000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_3"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Tú 4",
+    "email": "user4@example.com",
+    "phone": "0902057267",
+    "company": "Công ty Tú Group 4",
+    "stage": "lead",
+    "source": "email",
+    "deal_value": 71000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_4"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Vinh 5",
+    "email": "user5@example.com",
+    "phone": "0907265548",
+    "company": "Công ty Vinh Group 5",
+    "stage": "negotiation",
+    "source": "telegram",
+    "deal_value": 13000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_5"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Minh 6",
+    "email": "user6@example.com",
+    "phone": "0908494040",
+    "company": "Công ty Minh Group 6",
+    "stage": "lead",
+    "source": "email",
+    "deal_value": 81000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_6"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Hồ Xuân Anh 7",
+    "email": "user7@example.com",
+    "phone": "0901363002",
+    "company": "Công ty Anh Group 7",
+    "stage": "closed_won",
+    "source": "telegram",
+    "deal_value": 6000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_7"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Oanh 8",
+    "email": "user8@example.com",
+    "phone": "0907943837",
+    "company": "Công ty Oanh Group 8",
+    "stage": "proposal",
+    "source": "telegram",
+    "deal_value": 58000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_8"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Trần Minh Minh 9",
+    "email": "user9@example.com",
+    "phone": "0906264554",
+    "company": "Công ty Minh Group 9",
+    "stage": "lead",
+    "source": "zalo",
+    "deal_value": 84000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_9"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Châu 10",
+    "email": "user10@example.com",
+    "phone": "0902541561",
+    "company": "Công ty Châu Group 10",
+    "stage": "lead",
+    "source": "referral",
+    "deal_value": 39000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_0"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Hồ Xuân Sơn 11",
+    "email": "user11@example.com",
+    "phone": "0906153820",
+    "company": "Công ty Sơn Group 11",
+    "stage": "closed_lost",
+    "source": "zalo",
+    "deal_value": 33000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_1"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Em 12",
+    "email": "user12@example.com",
+    "phone": "0908567867",
+    "company": "Công ty Em Group 12",
+    "stage": "closed_won",
+    "source": "email",
+    "deal_value": 60000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_2"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Khôi 13",
+    "email": "user13@example.com",
+    "phone": "0906480509",
+    "company": "Công ty Khôi Group 13",
+    "stage": "negotiation",
+    "source": "referral",
+    "deal_value": 3000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_3"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Châu 14",
+    "email": "user14@example.com",
+    "phone": "0904858914",
+    "company": "Công ty Châu Group 14",
+    "stage": "proposal",
+    "source": "referral",
+    "deal_value": 84000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_4"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Vũ Kim Bình 15",
+    "email": "user15@example.com",
+    "phone": "0909160876",
+    "company": "Công ty Bình Group 15",
+    "stage": "negotiation",
+    "source": "telegram",
+    "deal_value": 11000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_5"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Em 16",
+    "email": "user16@example.com",
+    "phone": "0906986024",
+    "company": "Công ty Em Group 16",
+    "stage": "closed_lost",
+    "source": "email",
+    "deal_value": 46000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_6"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Ngô Đức Anh 17",
+    "email": "user17@example.com",
+    "phone": "0909352781",
+    "company": "Công ty Anh Group 17",
+    "stage": "proposal",
+    "source": "email",
+    "deal_value": 19000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_7"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Vũ Kim Hạnh 18",
+    "email": "user18@example.com",
+    "phone": "0909591473",
+    "company": "Công ty Hạnh Group 18",
+    "stage": "negotiation",
+    "source": "telegram",
+    "deal_value": 74000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_8"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Nguyễn Văn Sơn 19",
+    "email": "user19@example.com",
+    "phone": "0903145829",
+    "company": "Công ty Sơn Group 19",
+    "stage": "closed_lost",
+    "source": "email",
+    "deal_value": 3000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_9"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Anh 20",
+    "email": "user20@example.com",
+    "phone": "0906340513",
+    "company": "Công ty Anh Group 20",
+    "stage": "negotiation",
+    "source": "email",
+    "deal_value": 81000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_0"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Quỳnh 21",
+    "email": "user21@example.com",
+    "phone": "0905525055",
+    "company": "Công ty Quỳnh Group 21",
+    "stage": "lead",
+    "source": "telegram",
+    "deal_value": 59000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_1"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Ngô Đức Oanh 22",
+    "email": "user22@example.com",
+    "phone": "0904248970",
+    "company": "Công ty Oanh Group 22",
+    "stage": "negotiation",
+    "source": "email",
+    "deal_value": 56000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_2"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Em 23",
+    "email": "user23@example.com",
+    "phone": "0904106122",
+    "company": "Công ty Em Group 23",
+    "stage": "lead",
+    "source": "telegram",
+    "deal_value": 99000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_3"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Ngô Đức Linh 24",
+    "email": "user24@example.com",
+    "phone": "0908742596",
+    "company": "Công ty Linh Group 24",
+    "stage": "closed_won",
+    "source": "email",
+    "deal_value": 41000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_4"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Vinh 25",
+    "email": "user25@example.com",
+    "phone": "0901405748",
+    "company": "Công ty Vinh Group 25",
+    "stage": "closed_won",
+    "source": "telegram",
+    "deal_value": 4000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_5"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Trần Minh Nam 26",
+    "email": "user26@example.com",
+    "phone": "0909725729",
+    "company": "Công ty Nam Group 26",
+    "stage": "lead",
+    "source": "referral",
+    "deal_value": 23000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_6"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Vũ Kim Oanh 27",
+    "email": "user27@example.com",
+    "phone": "0901384107",
+    "company": "Công ty Oanh Group 27",
+    "stage": "negotiation",
+    "source": "email",
+    "deal_value": 11000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_7"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Lê Thị Khôi 28",
+    "email": "user28@example.com",
+    "phone": "0903560722",
+    "company": "Công ty Khôi Group 28",
+    "stage": "negotiation",
+    "source": "telegram",
+    "deal_value": 10000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_8"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Sơn 29",
+    "email": "user29@example.com",
+    "phone": "0905490409",
+    "company": "Công ty Sơn Group 29",
+    "stage": "lead",
+    "source": "email",
+    "deal_value": 22000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_9"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Vũ Kim Khôi 30",
+    "email": "user30@example.com",
+    "phone": "0903840478",
+    "company": "Công ty Khôi Group 30",
+    "stage": "closed_lost",
+    "source": "referral",
+    "deal_value": 76000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_0"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Nguyễn Văn Oanh 31",
+    "email": "user31@example.com",
+    "phone": "0901749584",
+    "company": "Công ty Oanh Group 31",
+    "stage": "negotiation",
+    "source": "telegram",
+    "deal_value": 33000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_1"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Châu 32",
+    "email": "user32@example.com",
+    "phone": "0909112271",
+    "company": "Công ty Châu Group 32",
+    "stage": "closed_won",
+    "source": "referral",
+    "deal_value": 33000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_2"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Ngô Đức Bình 33",
+    "email": "user33@example.com",
+    "phone": "0901576402",
+    "company": "Công ty Bình Group 33",
+    "stage": "proposal",
+    "source": "referral",
+    "deal_value": 5000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_3"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Vũ Kim Tú 34",
+    "email": "user34@example.com",
+    "phone": "0902637910",
+    "company": "Công ty Tú Group 34",
+    "stage": "proposal",
+    "source": "zalo",
+    "deal_value": 77000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_4"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Hạnh 35",
+    "email": "user35@example.com",
+    "phone": "0908087077",
+    "company": "Công ty Hạnh Group 35",
+    "stage": "lead",
+    "source": "email",
+    "deal_value": 65000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_5"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Ngô Đức Nam 36",
+    "email": "user36@example.com",
+    "phone": "0902758167",
+    "company": "Công ty Nam Group 36",
+    "stage": "closed_won",
+    "source": "zalo",
+    "deal_value": 36000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_6"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Anh 37",
+    "email": "user37@example.com",
+    "phone": "0904362794",
+    "company": "Công ty Anh Group 37",
+    "stage": "closed_won",
+    "source": "email",
+    "deal_value": 23000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_7"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Anh 38",
+    "email": "user38@example.com",
+    "phone": "0901033379",
+    "company": "Công ty Anh Group 38",
+    "stage": "lead",
+    "source": "telegram",
+    "deal_value": 94000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_8"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Ngô Đức Linh 39",
+    "email": "user39@example.com",
+    "phone": "0901641255",
+    "company": "Công ty Linh Group 39",
+    "stage": "closed_won",
+    "source": "email",
+    "deal_value": 47000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_9"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Dũng 40",
+    "email": "user40@example.com",
+    "phone": "0902294634",
+    "company": "Công ty Dũng Group 40",
+    "stage": "proposal",
+    "source": "telegram",
+    "deal_value": 53000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_0"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Quỳnh 41",
+    "email": "user41@example.com",
+    "phone": "0909743758",
+    "company": "Công ty Quỳnh Group 41",
+    "stage": "closed_lost",
+    "source": "referral",
+    "deal_value": 32000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_1"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Phú 42",
+    "email": "user42@example.com",
+    "phone": "0908697128",
+    "company": "Công ty Phú Group 42",
+    "stage": "negotiation",
+    "source": "telegram",
+    "deal_value": 2000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_2"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Nguyễn Văn Em 43",
+    "email": "user43@example.com",
+    "phone": "0907651920",
+    "company": "Công ty Em Group 43",
+    "stage": "closed_won",
+    "source": "referral",
+    "deal_value": 78000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_3"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Trần Minh Châu 44",
+    "email": "user44@example.com",
+    "phone": "0905008375",
+    "company": "Công ty Châu Group 44",
+    "stage": "lead",
+    "source": "telegram",
+    "deal_value": 24000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_4"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Bình 45",
+    "email": "user45@example.com",
+    "phone": "0904682937",
+    "company": "Công ty Bình Group 45",
+    "stage": "closed_lost",
+    "source": "telegram",
+    "deal_value": 53000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_5"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Vinh 46",
+    "email": "user46@example.com",
+    "phone": "0905580439",
+    "company": "Công ty Vinh Group 46",
+    "stage": "negotiation",
+    "source": "email",
+    "deal_value": 94000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_6"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Trần Minh Dũng 47",
+    "email": "user47@example.com",
+    "phone": "0907907785",
+    "company": "Công ty Dũng Group 47",
+    "stage": "lead",
+    "source": "zalo",
+    "deal_value": 32000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_7"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Vinh 48",
+    "email": "user48@example.com",
+    "phone": "0904840648",
+    "company": "Công ty Vinh Group 48",
+    "stage": "negotiation",
+    "source": "referral",
+    "deal_value": 35000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_8"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Lê Thị Em 49",
+    "email": "user49@example.com",
+    "phone": "0909025787",
+    "company": "Công ty Em Group 49",
+    "stage": "closed_lost",
+    "source": "referral",
+    "deal_value": 57000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_9"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Em 50",
+    "email": "user50@example.com",
+    "phone": "0901653089",
+    "company": "Công ty Em Group 50",
+    "stage": "proposal",
+    "source": "telegram",
+    "deal_value": 60000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_0"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Sơn 51",
+    "email": "user51@example.com",
+    "phone": "0903935892",
+    "company": "Công ty Sơn Group 51",
+    "stage": "negotiation",
+    "source": "zalo",
+    "deal_value": 51000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_1"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Vinh 52",
+    "email": "user52@example.com",
+    "phone": "0904457564",
+    "company": "Công ty Vinh Group 52",
+    "stage": "lead",
+    "source": "zalo",
+    "deal_value": 38000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_2"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Lê Thị Châu 53",
+    "email": "user53@example.com",
+    "phone": "0909911233",
+    "company": "Công ty Châu Group 53",
+    "stage": "negotiation",
+    "source": "referral",
+    "deal_value": 3000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_3"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Oanh 54",
+    "email": "user54@example.com",
+    "phone": "0903621168",
+    "company": "Công ty Oanh Group 54",
+    "stage": "proposal",
+    "source": "email",
+    "deal_value": 21000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_4"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Dũng 55",
+    "email": "user55@example.com",
+    "phone": "0901109342",
+    "company": "Công ty Dũng Group 55",
+    "stage": "lead",
+    "source": "telegram",
+    "deal_value": 32000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_5"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Hồ Xuân Nam 56",
+    "email": "user56@example.com",
+    "phone": "0903832658",
+    "company": "Công ty Nam Group 56",
+    "stage": "closed_won",
+    "source": "email",
+    "deal_value": 31000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_6"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Vũ Kim Sơn 57",
+    "email": "user57@example.com",
+    "phone": "0903213953",
+    "company": "Công ty Sơn Group 57",
+    "stage": "closed_won",
+    "source": "email",
+    "deal_value": 43000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_7"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Hạnh 58",
+    "email": "user58@example.com",
+    "phone": "0909016921",
+    "company": "Công ty Hạnh Group 58",
+    "stage": "proposal",
+    "source": "telegram",
+    "deal_value": 88000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_8"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Hồ Xuân Hạnh 59",
+    "email": "user59@example.com",
+    "phone": "0901788128",
+    "company": "Công ty Hạnh Group 59",
+    "stage": "closed_lost",
+    "source": "telegram",
+    "deal_value": 19000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_9"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Nguyễn Văn Phú 60",
+    "email": "user60@example.com",
+    "phone": "0907654408",
+    "company": "Công ty Phú Group 60",
+    "stage": "closed_lost",
+    "source": "email",
+    "deal_value": 25000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_0"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Linh 61",
+    "email": "user61@example.com",
+    "phone": "0902250859",
+    "company": "Công ty Linh Group 61",
+    "stage": "proposal",
+    "source": "referral",
+    "deal_value": 76000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_1"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Khôi 62",
+    "email": "user62@example.com",
+    "phone": "0903264683",
+    "company": "Công ty Khôi Group 62",
+    "stage": "closed_lost",
+    "source": "referral",
+    "deal_value": 82000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_2"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Hồ Xuân Khôi 63",
+    "email": "user63@example.com",
+    "phone": "0902775680",
+    "company": "Công ty Khôi Group 63",
+    "stage": "proposal",
+    "source": "referral",
+    "deal_value": 1000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_3"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Minh 64",
+    "email": "user64@example.com",
+    "phone": "0907159035",
+    "company": "Công ty Minh Group 64",
+    "stage": "closed_won",
+    "source": "zalo",
+    "deal_value": 74000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_4"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Trần Minh Oanh 65",
+    "email": "user65@example.com",
+    "phone": "0907109268",
+    "company": "Công ty Oanh Group 65",
+    "stage": "closed_lost",
+    "source": "telegram",
+    "deal_value": 95000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_5"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Minh 66",
+    "email": "user66@example.com",
+    "phone": "0902121886",
+    "company": "Công ty Minh Group 66",
+    "stage": "closed_lost",
+    "source": "zalo",
+    "deal_value": 20000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_6"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Anh 67",
+    "email": "user67@example.com",
+    "phone": "0902441249",
+    "company": "Công ty Anh Group 67",
+    "stage": "closed_won",
+    "source": "email",
+    "deal_value": 72000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_7"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Minh 68",
+    "email": "user68@example.com",
+    "phone": "0902006007",
+    "company": "Công ty Minh Group 68",
+    "stage": "closed_won",
+    "source": "zalo",
+    "deal_value": 70000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_8"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Anh 69",
+    "email": "user69@example.com",
+    "phone": "0905436230",
+    "company": "Công ty Anh Group 69",
+    "stage": "closed_won",
+    "source": "zalo",
+    "deal_value": 75000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_9"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Vũ Kim Anh 70",
+    "email": "user70@example.com",
+    "phone": "0903968918",
+    "company": "Công ty Anh Group 70",
+    "stage": "negotiation",
+    "source": "zalo",
+    "deal_value": 72000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_0"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Trần Minh Dũng 71",
+    "email": "user71@example.com",
+    "phone": "0904019397",
+    "company": "Công ty Dũng Group 71",
+    "stage": "lead",
+    "source": "referral",
+    "deal_value": 69000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_1"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đỗ Minh Vinh 72",
+    "email": "user72@example.com",
+    "phone": "0908458127",
+    "company": "Công ty Vinh Group 72",
+    "stage": "closed_won",
+    "source": "referral",
+    "deal_value": 47000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_2"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Hồ Xuân Khôi 73",
+    "email": "user73@example.com",
+    "phone": "0903676618",
+    "company": "Công ty Khôi Group 73",
+    "stage": "closed_won",
+    "source": "email",
+    "deal_value": 75000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_3"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Trần Minh Nam 74",
+    "email": "user74@example.com",
+    "phone": "0903514279",
+    "company": "Công ty Nam Group 74",
+    "stage": "closed_won",
+    "source": "email",
+    "deal_value": 92000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_4"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Dũng 75",
+    "email": "user75@example.com",
+    "phone": "0902869735",
+    "company": "Công ty Dũng Group 75",
+    "stage": "lead",
+    "source": "referral",
+    "deal_value": 96000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_5"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Trần Minh Minh 76",
+    "email": "user76@example.com",
+    "phone": "0907442876",
+    "company": "Công ty Minh Group 76",
+    "stage": "lead",
+    "source": "telegram",
+    "deal_value": 26000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_6"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Nguyễn Văn Em 77",
+    "email": "user77@example.com",
+    "phone": "0906805468",
+    "company": "Công ty Em Group 77",
+    "stage": "closed_lost",
+    "source": "email",
+    "deal_value": 83000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_7"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Nguyễn Văn Dũng 78",
+    "email": "user78@example.com",
+    "phone": "0909981066",
+    "company": "Công ty Dũng Group 78",
+    "stage": "closed_won",
+    "source": "telegram",
+    "deal_value": 68000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_8"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Lê Thị Bình 79",
+    "email": "user79@example.com",
+    "phone": "0904639165",
+    "company": "Công ty Bình Group 79",
+    "stage": "closed_won",
+    "source": "telegram",
+    "deal_value": 55000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_9"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Hồ Xuân Anh 80",
+    "email": "user80@example.com",
+    "phone": "0906656922",
+    "company": "Công ty Anh Group 80",
+    "stage": "closed_lost",
+    "source": "telegram",
+    "deal_value": 90000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_0"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Ngô Đức Em 81",
+    "email": "user81@example.com",
+    "phone": "0905343738",
+    "company": "Công ty Em Group 81",
+    "stage": "lead",
+    "source": "email",
+    "deal_value": 23000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_1"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Ngô Đức Minh 82",
+    "email": "user82@example.com",
+    "phone": "0904733712",
+    "company": "Công ty Minh Group 82",
+    "stage": "negotiation",
+    "source": "telegram",
+    "deal_value": 46000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_2"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Sơn 83",
+    "email": "user83@example.com",
+    "phone": "0909963420",
+    "company": "Công ty Sơn Group 83",
+    "stage": "negotiation",
+    "source": "email",
+    "deal_value": 2000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_3"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Vũ Kim Anh 84",
+    "email": "user84@example.com",
+    "phone": "0901905699",
+    "company": "Công ty Anh Group 84",
+    "stage": "proposal",
+    "source": "telegram",
+    "deal_value": 69000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_4"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Châu 85",
+    "email": "user85@example.com",
+    "phone": "0902554364",
+    "company": "Công ty Châu Group 85",
+    "stage": "closed_won",
+    "source": "telegram",
+    "deal_value": 29000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_5"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Trần Minh Quỳnh 86",
+    "email": "user86@example.com",
+    "phone": "0903414874",
+    "company": "Công ty Quỳnh Group 86",
+    "stage": "lead",
+    "source": "zalo",
+    "deal_value": 19000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_6"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Nam 87",
+    "email": "user87@example.com",
+    "phone": "0902015579",
+    "company": "Công ty Nam Group 87",
+    "stage": "negotiation",
+    "source": "zalo",
+    "deal_value": 62000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_7"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Linh 88",
+    "email": "user88@example.com",
+    "phone": "0904495757",
+    "company": "Công ty Linh Group 88",
+    "stage": "lead",
+    "source": "referral",
+    "deal_value": 77000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_8"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Ngô Đức Bình 89",
+    "email": "user89@example.com",
+    "phone": "0904508491",
+    "company": "Công ty Bình Group 89",
+    "stage": "closed_lost",
+    "source": "referral",
+    "deal_value": 23000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_9"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Hạnh 90",
+    "email": "user90@example.com",
+    "phone": "0906760399",
+    "company": "Công ty Hạnh Group 90",
+    "stage": "closed_lost",
+    "source": "email",
+    "deal_value": 9000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_0"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Vũ Kim Em 91",
+    "email": "user91@example.com",
+    "phone": "0901932681",
+    "company": "Công ty Em Group 91",
+    "stage": "closed_won",
+    "source": "telegram",
+    "deal_value": 58000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_1"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Hồ Xuân Khôi 92",
+    "email": "user92@example.com",
+    "phone": "0904871182",
+    "company": "Công ty Khôi Group 92",
+    "stage": "lead",
+    "source": "referral",
+    "deal_value": 87000000,
+    "channel_source": "referral",
+    "tags": [
+      "referral",
+      "batch_2"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Bình 93",
+    "email": "user93@example.com",
+    "phone": "0908971778",
+    "company": "Công ty Bình Group 93",
+    "stage": "lead",
+    "source": "zalo",
+    "deal_value": 49000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_3"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Phạm Hoàng Hạnh 94",
+    "email": "user94@example.com",
+    "phone": "0902889472",
+    "company": "Công ty Hạnh Group 94",
+    "stage": "proposal",
+    "source": "zalo",
+    "deal_value": 43000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_4"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Nguyễn Văn Em 95",
+    "email": "user95@example.com",
+    "phone": "0908866827",
+    "company": "Công ty Em Group 95",
+    "stage": "lead",
+    "source": "zalo",
+    "deal_value": 84000000,
+    "channel_source": "zalo",
+    "tags": [
+      "zalo",
+      "batch_5"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Bùi Anh Nam 96",
+    "email": "user96@example.com",
+    "phone": "0901118930",
+    "company": "Công ty Nam Group 96",
+    "stage": "negotiation",
+    "source": "email",
+    "deal_value": 92000000,
+    "channel_source": "email",
+    "tags": [
+      "email",
+      "batch_6"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Trần Minh Linh 97",
+    "email": "user97@example.com",
+    "phone": "0903078122",
+    "company": "Công ty Linh Group 97",
+    "stage": "closed_lost",
+    "source": "telegram",
+    "deal_value": 12000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_7"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Đặng Quang Minh 98",
+    "email": "user98@example.com",
+    "phone": "0902819509",
+    "company": "Công ty Minh Group 98",
+    "stage": "negotiation",
+    "source": "telegram",
+    "deal_value": 58000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_8"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Vũ Kim Bình 99",
+    "email": "user99@example.com",
+    "phone": "0905782911",
+    "company": "Công ty Bình Group 99",
+    "stage": "lead",
+    "source": "telegram",
+    "deal_value": 7000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_9"
+    ]
+  },
+  {
+    "tenant_id": "00000000-0000-0000-0000-000000000000",
+    "name": "Hồ Xuân Linh 100",
+    "email": "user100@example.com",
+    "phone": "0908328353",
+    "company": "Công ty Linh Group 100",
+    "stage": "negotiation",
+    "source": "telegram",
+    "deal_value": 97000000,
+    "channel_source": "telegram",
+    "tags": [
+      "telegram",
+      "batch_0"
+    ]
+  }
+]
