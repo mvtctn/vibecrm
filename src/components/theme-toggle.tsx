@@ -6,7 +6,16 @@ import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 
 export function ThemeToggle() {
+    const [mounted, setMounted] = React.useState(false);
     const { theme, setTheme } = useTheme();
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) {
+        return <div className="flex items-center gap-2 p-1 rounded-xl bg-black/20 border border-white/10 w-[116px] h-10"></div>;
+    }
 
     return (
         <div className="flex items-center gap-2 p-1 rounded-xl bg-black/20 border border-white/10 w-fit">
