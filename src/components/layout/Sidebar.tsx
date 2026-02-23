@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { supabase } from "@/lib/supabase";
+import { useRouter } from "next/navigation";
 import {
     LayoutDashboard, Users, Kanban, Inbox, Bell,
     Settings, ChevronLeft, ChevronRight, Zap, Bot,
-    ChevronDown, Check, Shield, PlusCircle,
+    ChevronDown, Check, Shield, PlusCircle, LogOut,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTenant } from "@/lib/tenant-context";
@@ -30,8 +32,30 @@ const planColors: Record<string, string> = {
 export function Sidebar() {
     const [collapsed, setCollapsed] = useState(false);
     const [orgMenuOpen, setOrgMenuOpen] = useState(false);
+    const [user, setUser] = useState<any>(null);
     const pathname = usePathname();
+    const router = useRouter();
     const { currentTenant, tenants, switchTenant, isAdmin, currentRole, setRole } = useTenant();
+
+    useEffect(() => {
+        const getUser = async () => {
+            const { data: { user } } = await supabase.auth.getUser();
+            setUser(user);
+        };
+        getUser();
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event: string, session: any) => {
+            setUser(session?.user ?? null);
+        });
+
+        return () => subscription.unsubscribe();
+    }, []);
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        router.push("/login");
+        router.refresh();
+    };
 
     return (
         <motion.aside
@@ -176,22 +200,33 @@ export function Sidebar() {
                 })}
             </nav>
 
-            {/* User Profile */}
-            <div className="border-t border-border p-3">
+            {/* User Profile & Logout */}
+            <div className="border-t border-border p-3 space-y-2">
                 <div className={cn("flex items-center gap-3", collapsed && "justify-center")}>
-                    <div className="relative w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-xs font-bold shrink-0">
-                        B
+                    <div className="relative w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-lg shadow-purple-500/20">
+                        {user?.email?.[0].toUpperCase() || "B"}
                         <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-card" />
                     </div>
                     <AnimatePresence>
                         {!collapsed && (
                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex-1 min-w-0">
-                                <p className="text-xs font-medium text-white truncate">{currentTenant.owner}</p>
+                                <p className="text-xs font-medium text-white truncate">{user?.email || currentTenant.owner}</p>
                                 <p className="text-[10px] text-muted-foreground truncate capitalize">{currentRole} · {currentTenant.name}</p>
                             </motion.div>
                         )}
                     </AnimatePresence>
                 </div>
+
+                <button
+                    onClick={handleLogout}
+                    className={cn(
+                        "w-full flex items-center gap-3 px-3 py-2 rounded-xl text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-all group",
+                        collapsed && "justify-center px-2"
+                    )}
+                >
+                    <LogOut className="w-4 h-4 shrink-0 transition-transform group-hover:scale-110" />
+                    {!collapsed && <span className="text-xs font-medium">Đăng xuất</span>}
+                </button>
             </div>
 
             {/* Collapse Toggle */}

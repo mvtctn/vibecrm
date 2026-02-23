@@ -113,8 +113,8 @@ export default function DashboardPage() {
                 .neq('stage', 'lost');
 
             if (contactCount !== null && deals) {
-                const totalValue = deals.reduce((acc, d) => acc + (d.deal_value || 0), 0);
-                const activeDeals = deals.filter(d => d.deal_value > 0).length;
+                const totalValue = (deals as any[]).reduce((acc: number, d: any) => acc + (d.deal_value || 0), 0);
+                const activeDeals = (deals as any[]).filter((d: any) => d.deal_value > 0).length;
                 setStats(prev => ({
                     ...prev,
                     totalContacts: contactCount,
@@ -167,7 +167,7 @@ export default function DashboardPage() {
                     .from('follow_ups')
                     .insert([newTask])
                     .select()
-                    .then(({ data, error }) => {
+                    .then(({ data, error }: { data: any, error: any }) => {
                         if (data && !error) {
                             setPendingFollowUps(prev => [data[0] as FollowUp, ...prev].slice(0, 3));
                         }

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import Groq from "groq-sdk";
@@ -31,7 +32,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ tenantI
         let contactId: string | null = null;
 
         if (contacts) {
-            const existing = contacts.find(c => c.tags?.includes(`zalo_${zaloId}`));
+            const existing = (contacts as any[]).find(c => c.tags?.includes(`zalo_${zaloId}`));
             if (existing) {
                 contactId = existing.id;
             }

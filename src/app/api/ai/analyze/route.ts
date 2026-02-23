@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import Groq from "groq-sdk";
 import { SYSTEM_PROMPT_ANALYZE_MESSAGE, AIAnalysisResult } from "@/lib/ai-prompt";

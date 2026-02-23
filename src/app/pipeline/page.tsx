@@ -169,7 +169,7 @@ export default function PipelinePage() {
         setAllContacts(data || []);
 
         const mockCols = PIPELINE_STAGES.map(stage => {
-            const stageDeals = (data || []).filter(c => c.stage === stage.id).map(c => ({
+            const stageDeals = (data as any[] || []).filter((c: any) => c.stage === stage.id).map((c: any) => ({
                 id: c.id,
                 contact_id: c.id,
                 contact_name: c.name,
@@ -274,7 +274,7 @@ export default function PipelinePage() {
             .from('contacts')
             .update({ stage: newStage })
             .eq('id', active.id)
-            .then(({ error }) => {
+            .then(({ error }: { error: any }) => {
                 if (error) console.error("Error updating stage:", error);
             });
 
