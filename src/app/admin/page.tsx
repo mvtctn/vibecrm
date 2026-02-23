@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { mockTenants } from "@/lib/tenant-context";
+import { defaultTenant } from "@/lib/tenant-context";
 import { formatCurrency, cn } from "@/lib/utils";
 import {
     Shield, Users, TrendingUp, Zap, MoreVertical,
@@ -33,7 +33,7 @@ const globalStats = [
 ];
 
 export default function AdminPage() {
-    const [tenants] = useState(mockTenants);
+    const [tenants] = useState([defaultTenant]);
 
     return (
         <div className="p-6 space-y-6">
@@ -96,7 +96,7 @@ export default function AdminPage() {
                         </tr>
                     </thead>
                     <tbody>
-                        {tenants.map((tenant, i) => {
+                        {tenants.map((tenant: any, i: number) => {
                             const StatusIcon = statusIcons[tenant.status].icon;
                             return (
                                 <motion.tr
